@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 class Artist(models.Model):
     name = models.CharField(max_length=200)
@@ -40,3 +41,9 @@ class Order(models.Model):
 
     def __str__(self):
         return f"Order {self.id} - {self.vinyl.title}"
+
+    def clean(self):
+        if self.quantity <= 0:
+            raise ValidationError({'quantity': 'Ilość musi być większa od zera'})
+        if self.quantity > self.vinyl.stock:
+            raise ValidationError({'quantity': 'Nie ma wystarczającej ilości płyt w magazynie'})

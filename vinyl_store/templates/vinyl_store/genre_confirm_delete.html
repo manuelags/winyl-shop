@@ -1,0 +1,14 @@
+{% extends 'vinyl_store/base.html' %}
+
+{% block title %}Usuń gatunek{% endblock %}
+
+{% block content %}
+    <h1>Usuń gatunek</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <p>Czy na pewno chcesz usunąć gatunek "{{ object.name }}"?</p>
+        <button type="submit" class="btn btn-danger">Tak, usuń</button>
+        <a href="{% url 'vinyl_store:genre-list' %}" class="btn">Anuluj</a>
+    </form>
+{% endblock %}

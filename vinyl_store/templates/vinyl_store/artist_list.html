@@ -3,14 +3,20 @@
 {% block title %}Lista Artystów{% endblock %}
 
 {% block content %}
-    <h1>Nasi Artyści</h1>
+    <h1>Artyści</h1>
+
+    <a href="{% url 'vinyl_store:artist-add' %}" class="btn">Dodaj artystę</a>
+
     <div class="artist-grid">
         {% for artist in artists %}
             <div class="artist-card">
                 <h2>{{ artist.name }}</h2>
-                {% if artist.description %}
-                    <p>{{ artist.description }}</p>
-                {% endif %}
+                <p>{{ artist.description }}</p>
+                <div class="artist-actions">
+                    <a href="{% url 'vinyl_store:artist-detail' artist.pk %}" class="btn">Szczegóły</a>
+                    <a href="{% url 'vinyl_store:artist-edit' artist.pk %}" class="btn">Edytuj</a>
+                    <a href="{% url 'vinyl_store:artist-delete' artist.pk %}" class="btn btn-danger">Usuń</a>
+                </div>
             </div>
         {% empty %}
             <p>Brak artystów w bazie.</p>

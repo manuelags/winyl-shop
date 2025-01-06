@@ -5,12 +5,16 @@
 {% block content %}
     <h1>Gatunki Muzyczne</h1>
 
+    <a href="{% url 'vinyl_store:genre-add' %}" class="btn">Dodaj gatunek</a>
+
     <div class="genre-grid">
         {% for genre in genres %}
             <div class="genre-card">
                 <h2>{{ genre.name }}</h2>
                 <div class="genre-actions">
                     <a href="{% url 'vinyl_store:vinyls-by-genre' genre.id %}" class="btn">Zobacz płyty</a>
+                    <a href="{% url 'vinyl_store:genre-edit' genre.pk %}" class="btn">Edytuj</a>
+                    <a href="{% url 'vinyl_store:genre-delete' genre.pk %}" class="btn btn-danger">Usuń</a>
                 </div>
             </div>
         {% empty %}

@@ -19,7 +19,17 @@
 
     <form method="post">
         {% csrf_token %}
+        {% if form.errors %}
+            <div class="form-errors">
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <p class="error">{{ field.label }}: {{ error }}</p>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        {% endif %}
         {{ form.as_p }}
+        <p class="help-text">Format daty: RRRR-MM-DD (np. 1973-03-01)</p>
         <button type="submit" class="btn">
             {% if form.instance.pk %}
                 Zapisz zmiany

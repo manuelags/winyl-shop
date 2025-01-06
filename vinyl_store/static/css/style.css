@@ -216,3 +216,15 @@ form select {
     border-radius: 8px;
     margin-bottom: 2rem;
 }
+
+.form-errors {
+    background: #dc3545;
+    color: white;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.error {
+    margin: 0.5rem 0;
+}
