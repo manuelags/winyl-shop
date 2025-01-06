@@ -1,0 +1,107 @@
+:root {
+    --primary-color: #1db954;
+    --secondary-color: #191414;
+    --text-color: #ffffff;
+    --background-light: #282828;
+    --background-dark: #121212;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-dark);
+    color: var(--text-color);
+}
+
+nav {
+    background: var(--secondary-color);
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.vinyl-grid, .artist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.vinyl-card, .artist-card {
+    background: var(--background-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vinyl-card:hover, .artist-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.vinyl-card h2, .artist-card h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.vinyl-card p, .artist-card p {
+    margin: 0.5rem 0;
+    color: #b3b3b3;
+}
+
+.vinyl-card a, .artist-card a {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.vinyl-card a:hover, .artist-card a:hover {
+    background: #1ed760;
+}
+
+footer {
+    background: var(--secondary-color);
+    padding: 2rem;
+    text-align: center;
+    margin-top: 4rem;
+    color: #b3b3b3;
+}

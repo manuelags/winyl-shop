@@ -1,0 +1,19 @@
+{% extends 'vinyl_store/base.html' %}
+
+{% block title %}Lista Artystów{% endblock %}
+
+{% block content %}
+    <h1>Nasi Artyści</h1>
+    <div class="artist-grid">
+        {% for artist in artists %}
+            <div class="artist-card">
+                <h2>{{ artist.name }}</h2>
+                {% if artist.description %}
+                    <p>{{ artist.description }}</p>
+                {% endif %}
+            </div>
+        {% empty %}
+            <p>Brak artystów w bazie.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

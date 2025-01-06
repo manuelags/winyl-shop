@@ -1,0 +1,19 @@
+{% extends 'vinyl_store/base.html' %}
+
+{% block title %}{{ vinyl.title }}{% endblock %}
+
+{% block content %}
+    <div class="vinyl-detail">
+        <h1>{{ vinyl.title }}</h1>
+        <div class="vinyl-info">
+            <p><strong>Artysta:</strong> {{ vinyl.artist.name }}</p>
+            <p><strong>Gatunek:</strong> {{ vinyl.genre.name }}</p>
+            <p><strong>Cena:</strong> {{ vinyl.price }} zł</p>
+            {% if vinyl.description %}
+                <p><strong>Opis:</strong></p>
+                <p>{{ vinyl.description }}</p>
+            {% endif %}
+        </div>
+        <a href="{% url 'vinyl_store:vinyl-list' %}">Powrót do listy</a>
+    </div>
+{% endblock %}

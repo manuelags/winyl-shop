@@ -1,0 +1,20 @@
+{% extends 'vinyl_store/base.html' %}
+
+{% block title %}Lista Płyt{% endblock %}
+
+{% block content %}
+    <h1>Nasze Płyty</h1>
+    <div class="vinyl-grid">
+        {% for vinyl in vinyls %}
+            <div class="vinyl-card">
+                <h2>{{ vinyl.title }}</h2>
+                <p>Artysta: {{ vinyl.artist.name }}</p>
+                <p>Gatunek: {{ vinyl.genre.name }}</p>
+                <p>Cena: {{ vinyl.price }} zł</p>
+                <a href="{% url 'vinyl_store:vinyl-detail' vinyl.pk %}">Szczegóły</a>
+            </div>
+        {% empty %}
+            <p>Brak płyt w sklepie.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

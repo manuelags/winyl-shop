@@ -1,0 +1,73 @@
+[
+    {
+        "model": "vinyl_store.artist",
+        "pk": 1,
+        "fields": {
+            "name": "Pink Floyd",
+            "description": "Legendarny zespół rockowy znany z albumów koncepcyjnych"
+        }
+    },
+    {
+        "model": "vinyl_store.artist",
+        "pk": 2,
+        "fields": {
+            "name": "The Beatles",
+            "description": "Najbardziej wpływowy zespół w historii muzyki popularnej"
+        }
+    },
+    {
+        "model": "vinyl_store.artist",
+        "pk": 3,
+        "fields": {
+            "name": "Queen",
+            "description": "Brytyjski zespół rockowy założony w 1970 roku"
+        }
+    },
+    {
+        "model": "vinyl_store.genre",
+        "pk": 1,
+        "fields": {
+            "name": "Rock"
+        }
+    },
+    {
+        "model": "vinyl_store.genre",
+        "pk": 2,
+        "fields": {
+            "name": "Progressive Rock"
+        }
+    },
+    {
+        "model": "vinyl_store.vinyl",
+        "pk": 1,
+        "fields": {
+            "title": "The Dark Side of the Moon",
+            "artist": 1,
+            "genre": 2,
+            "price": "129.99",
+            "description": "Kultowy album z 1973 roku"
+        }
+    },
+    {
+        "model": "vinyl_store.vinyl",
+        "pk": 2,
+        "fields": {
+            "title": "Abbey Road",
+            "artist": 2,
+            "genre": 1,
+            "price": "119.99",
+            "description": "Ostatni nagrany album zespołu"
+        }
+    },
+    {
+        "model": "vinyl_store.vinyl",
+        "pk": 3,
+        "fields": {
+            "title": "A Night at the Opera",
+            "artist": 3,
+            "genre": 1,
+            "price": "109.99",
+            "description": "Album zawierający Bohemian Rhapsody"
+        }
+    }
+]
