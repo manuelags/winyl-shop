@@ -1,0 +1,20 @@
+{% extends 'vinyl_store/base.html' %}
+
+{% block title %}Lista Gatunków{% endblock %}
+
+{% block content %}
+    <h1>Gatunki Muzyczne</h1>
+
+    <div class="genre-grid">
+        {% for genre in genres %}
+            <div class="genre-card">
+                <h2>{{ genre.name }}</h2>
+                <div class="genre-actions">
+                    <a href="{% url 'vinyl_store:vinyls-by-genre' genre.id %}" class="btn">Zobacz płyty</a>
+                </div>
+            </div>
+        {% empty %}
+            <p>Brak gatunków w bazie.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

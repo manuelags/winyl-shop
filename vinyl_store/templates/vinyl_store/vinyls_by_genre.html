@@ -1,20 +1,17 @@
 {% extends 'vinyl_store/base.html' %}
 
-{% block title %}Lista Płyt{% endblock %}
+{% block title %}Płyty - {{ genre.name }}{% endblock %}
 
 {% block content %}
-    <h1>Nasze Płyty</h1>
-
-    <a href="{% url 'vinyl_store:vinyl-add' %}" class="btn">Dodaj nową płytę</a>
+    <h1>Płyty z gatunku {{ genre.name }}</h1>
 
     <div class="vinyl-grid">
         {% for vinyl in vinyls %}
             <div class="vinyl-card">
                 <h2>{{ vinyl.title }}</h2>
                 <p>Artysta: {{ vinyl.artist.name }}</p>
-                <p>Gatunek: {{ vinyl.genre.name }}</p>
                 <p>Cena: {{ vinyl.price }} zł</p>
-
+                <p>{{ vinyl.description }}</p>
                 <div class="vinyl-actions">
                     <a href="{% url 'vinyl_store:vinyl-detail' vinyl.pk %}" class="btn">Szczegóły</a>
                     <a href="{% url 'vinyl_store:vinyl-edit' vinyl.pk %}" class="btn">Edytuj</a>
@@ -22,7 +19,7 @@
                 </div>
             </div>
         {% empty %}
-            <p>Brak płyt w bazie.</p>
+            <p>Brak płyt w tym gatunku.</p>
         {% endfor %}
     </div>
 {% endblock %}

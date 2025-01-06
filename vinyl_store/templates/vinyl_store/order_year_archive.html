@@ -1,0 +1,28 @@
+{% extends 'vinyl_store/base.html' %}
+
+{% block title %}Zamówienia z {{ year }}{% endblock %}
+
+{% block content %}
+    <h1>Zamówienia z roku {{ year }}</h1>
+
+    <div class="order-summary">
+        <h2>Podsumowanie</h2>
+        <p>Liczba zamówień: {{ object_list|length }}</p>
+        <p>Łączna wartość: {{ total_value|default:"0.00" }} zł</p>
+    </div>
+
+    <div class="order-list">
+        {% for order in object_list %}
+            <div class="order-card">
+                <h3>Zamówienie #{{ order.id }}</h3>
+                <p>Data: {{ order.created_at|date:"d.m.Y" }}</p>
+                <p>Płyta: {{ order.vinyl.title }}</p>
+                <p>Ilość: {{ order.quantity }}</p>
+                <p>Wartość: {{ order.total_price }} zł</p>
+                <p>Status: {{ order.get_status_display }}</p>
+            </div>
+        {% empty %}
+            <p>Brak zamówień w tym roku.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

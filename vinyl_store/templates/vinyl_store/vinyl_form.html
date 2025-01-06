@@ -1,0 +1,31 @@
+{% extends 'vinyl_store/base.html' %}
+
+{% block title %}
+    {% if form.instance.pk %}
+        Edytuj płytę
+    {% else %}
+        Dodaj nową płytę
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <h1>
+        {% if form.instance.pk %}
+            Edytuj płytę
+        {% else %}
+            Dodaj nową płytę
+        {% endif %}
+    </h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">
+            {% if form.instance.pk %}
+                Zapisz zmiany
+            {% else %}
+                Dodaj płytę
+            {% endif %}
+        </button>
+    </form>
+{% endblock %}

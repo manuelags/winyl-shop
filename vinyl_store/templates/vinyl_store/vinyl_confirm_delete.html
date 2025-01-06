@@ -1,0 +1,14 @@
+{% extends 'vinyl_store/base.html' %}
+
+{% block title %}Usuń płytę{% endblock %}
+
+{% block content %}
+    <h1>Usuń płytę</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <p>Czy na pewno chcesz usunąć płytę "{{ object.title }}"?</p>
+        <button type="submit" class="btn btn-danger">Tak, usuń</button>
+        <a href="{% url 'vinyl_store:vinyl-detail' object.pk %}" class="btn">Anuluj</a>
+    </form>
+{% endblock %}

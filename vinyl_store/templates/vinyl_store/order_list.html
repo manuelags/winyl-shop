@@ -1,0 +1,25 @@
+{% extends 'vinyl_store/base.html' %}
+
+{% block title %}Lista Zamówień{% endblock %}
+
+{% block content %}
+    <h1>Lista Zamówień</h1>
+
+    <div class="order-list">
+        {% for order in orders %}
+            <div class="order-card">
+                <h3>Zamówienie #{{ order.id }}</h3>
+                <p>Data: {{ order.created_at|date:"d.m.Y H:i" }}</p>
+                <p>Płyta: {{ order.vinyl.title }}</p>
+                <p>Ilość: {{ order.quantity }}</p>
+                <p>Wartość: {{ order.total_price }} zł</p>
+                <p>Status: {{ order.get_status_display }}</p>
+                <div class="order-actions">
+                    <a href="{% url 'vinyl_store:order-detail' order.pk %}" class="btn">Szczegóły</a>
+                </div>
+            </div>
+        {% empty %}
+            <p>Brak zamówień.</p>
+        {% endfor %}
+    </div>
+{% endblock %}
